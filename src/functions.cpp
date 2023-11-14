@@ -1,4 +1,5 @@
 #include "include/functions.h"
+#include <cstdint>
 
 /*
 A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example,
@@ -14,4 +15,30 @@ the greatest number that cannot be expressed as the sum of two abundant numbers 
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 */
 
-namespace func {}
+namespace func {
+    int64_t sum_of_proper_divisors_of(int64_t number) {
+        int64_t result = 0;
+
+        if (number == 1 || number == 0) {
+            return result;
+        }
+            
+        result++;
+        for (int i = 2; i <= (number / 2); i++) {
+            if (number % i == 0) {
+                if (number / i == i) {
+                    result += i;
+                } else {
+                    result += (number / i);
+                }
+            }
+        }
+
+        //Return the sum of the proper divisors of number.
+        return result;
+    }
+
+    bool is_abundant_number(int64_t number) {
+        return sum_of_proper_divisors_of(number) > number;
+    }
+}

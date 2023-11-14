@@ -1,5 +1,7 @@
 #include "include/functions.h"
 #include <iostream>
+#include <cstdint>
+#include <ios>
 
 /*
 A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example,
@@ -16,6 +18,8 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 */
 
 int main() {
+    int64_t num = 12;
+    std::cout << "Is " << num << " an abundant number?: " << std::boolalpha << func::is_abundant_number(num) << '\n';
 
     return 0;
 }

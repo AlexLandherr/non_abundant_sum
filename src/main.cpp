@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cstdint>
 #include <ios>
+#include <vector>
+#include <numeric>
 
 /*
 A perfect number is a number for which the sum of its proper divisors is exactly equal to the number. For example,
@@ -18,8 +20,16 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 */
 
 int main() {
-    int64_t num = 12;
-    std::cout << "Is " << num << " an abundant number?: " << std::boolalpha << func::is_abundant_number(num) << '\n';
+    /* int64_t num = 24;
+    std::cout << "Is " << num << " the sum of two abundant numbers?: " << std::boolalpha << func::is_sum_of_two_abundant_numbers(num) << '\n'; */
+    //Make vector of all integers from 1 up to and including 28123.
+    /* std::vector<int64_t> number_vector(28123);
+    std::iota(number_vector.begin(), number_vector.end(), 1); */
+    //std::cout << func::sum_of_proper_divisors_of(13) << '\n';
+    int64_t lower = 1;
+    int64_t upper = 28123;
+    std::cout << "The sum of all the positive integers which cannot be written as the sum of two abundant numbers is:" << '\n';
+    std::cout << func::sum_of_ints_not_expressable_as_sum_of_two_abundant_ints(lower, upper) << '\n';
 
     return 0;
 }
